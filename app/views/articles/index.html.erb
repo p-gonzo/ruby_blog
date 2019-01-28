@@ -5,7 +5,9 @@
     <li>Created On</li>
     <li>Title</li>
     <li>Preview</li>
-    <li>Link</li>
+    <li></li>
+    <li></li>
+    <li></li>
 </ul>
 <% @articles.each_with_index do |article, idx| %>
     <ul class='article-info'>
@@ -13,6 +15,10 @@
         <li><em><%= article.created_at.localtime %></em></li>
         <li><%= article.title %></li>
         <li><%= "#{article.text.split(' ')[0, 10].join(' ')} ... " %></li>
-        <li><%= link_to 'Show Article', article_path(article) %></li>
+        <li><%= link_to 'Show', article_path(article) %></li>
+        <li> <%= link_to  "Edit", edit_article_path(article) %></li>
+        <li> <%= link_to    "Delete", article_path(article),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %></li>
     </ul>
 <% end %>

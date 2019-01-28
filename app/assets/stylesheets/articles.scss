@@ -24,7 +24,7 @@
 .article-info li {
     text-align: center;
     // border: 1px solid black;
-    flex-basis: 18%;
+    flex-basis: 12%;
 }
 
 .article-info-title li {
@@ -34,6 +34,10 @@
 @media only screen and (max-width: 600px) {
     .article-info-title {
         display: none
+    }
+
+    .article-info {
+        border: 1px solid black;
     }
 
     .article-info li {
