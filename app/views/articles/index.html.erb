@@ -1,0 +1,18 @@
+<h1 id=all-articles-title>All Articles</h1>
+<%= link_to  "New Article", new_article_path %>
+<ul class='article-info article-info-title'>
+    <li>#</li>
+    <li>Created On</li>
+    <li>Title</li>
+    <li>Preview</li>
+    <li>Link</li>
+</ul>
+<% @articles.each_with_index do |article, idx| %>
+    <ul class='article-info'>
+        <li><%= "#{idx + 1}" %></li>
+        <li><em><%= article.created_at.localtime %></em></li>
+        <li><%= article.title %></li>
+        <li><%= "#{article.text.split(' ')[0, 10].join(' ')} ... " %></li>
+        <li><%= link_to 'Show Article', article_path(article) %></li>
+    </ul>
+<% end %>
