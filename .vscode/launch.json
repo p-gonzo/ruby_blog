@@ -1,16 +1,44 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Rails server",
+            "name": "Debug Rails server",
             "type": "Ruby",
             "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "useBundler": true,
+            "pathToBundler": "/Users/phil/.rbenv/shims/bundler",
+            "pathToRDebugIDE": "Users/phil/Desktop/ruby_blog/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.6.1",
             "program": "${workspaceRoot}/bin/rails",
             "args": [
-                "server"
+                "server",
+                "-p",
+                "3000"
+            ]
+        },
+        {
+            "name": "Run RSpec - all",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "/Users/phil/Desktop/ruby_blog/vendor/bundle/ruby/2.6.0/gems/rspec-3.8.0",
+            "args": [
+                "--pattern",
+                "${workspaceRoot}/spec/**/*_rspec.rb"
+            ]
+        },
+        {
+            "name": "Debug RSpec - open spec file",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "useBundler": true,
+            "pathToBundler": "/Users/phil/.rbenv/shims/bundler",
+            "pathToRDebugIDE": "/Users/phil/Desktop/ruby_blog/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.6.1",
+            "debuggerPort": "1235",
+            "program": "/Users/phil/Desktop/ruby_blog/vendor/bundle/ruby/2.6.0/gems/rspec-3.8.0",
+            "args": [
+                "${file}"
             ]
         }
     ]
